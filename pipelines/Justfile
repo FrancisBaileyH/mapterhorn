@@ -9,8 +9,11 @@ default:
     # uv run python source_download.py atkaernten
     # uv run python source_download.py beflanders
     # uv run python source_download.py bewallonie
+    # uv run python source_download.py cz
 
     # uv run python source_unzip.py bewallonie
+    # uv run python source_unzip.py cz
+
 
     # uv run python source_set_crs.py atsalzburg EPSG:31258
     
@@ -23,17 +26,19 @@ default:
     # uv run python source_bounds.py atburgenland
     # uv run python source_bounds.py atoberoesterreich
     # uv run python source_bounds.py atsalzburg
-    # uv run python source_bounds.py kaernten
+    # uv run python source_bounds.py atkaernten
     # uv run python source_bounds.py beflanders
     # uv run python source_bounds.py bewallonie
+    # uv run python source_bounds.py cz
 
     # uv run python aggregation_covering.py
     # uv run python downsampling_covering.py
  
     # uv run python aggregation_run.py
     # uv run python downsampling_run.py
-
     # uv run python remove_dangling_pmtiles.py
+    # uv run python create_index.py
+
     # TMPDIR=/tmp uv run python bundle.py 0.0.0
     # uv run python download_urls.py 0.0.0
     # uv run python attribution.py
