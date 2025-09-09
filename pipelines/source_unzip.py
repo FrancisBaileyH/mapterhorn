@@ -9,6 +9,7 @@ import utils
 
 def unzip_tif(filepath, source):
     filename = filepath.split('/')[-1]
+
     utils.run_command(f'unzip -o {filepath} -d source-store/{source}/{filename}-tmp/', silent=False)
     utils.run_command(f'rm {filepath}', silent=False)
     tif_filepaths = glob(f'source-store/{source}/{filename}-tmp/**/*.tif', recursive=True)
@@ -44,6 +45,7 @@ def un7z_asc(filepath, source):
         filepaths_to_remove = glob(filepath.replace('.7z.001', '.7z.*'))
     for filepath_to_remove in filepaths_to_remove:
         utils.run_command(f'rm "{filepath_to_remove}"', silent=False)
+
     shutil.rmtree(f'source-store/{source}/{filename}-tmp/')
 
 def main():
