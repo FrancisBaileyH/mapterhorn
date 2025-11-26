@@ -1,0 +1,8 @@
+{
+  "name": "High Resolution Digital Elevation Model (HRDEM) - CanElevation Series",
+  "website": "https://open.canada.ca/data/en/dataset/957782bf-847c-4644-a757-e383c0057995",
+  "license": "Open Government Licence - Canada",
+  "producer": "Government of Canada/Gouvernement du Canada",
+  "resolution": 0.5,
+  "access_year": 2025
+}

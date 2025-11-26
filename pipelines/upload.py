@@ -18,9 +18,9 @@ def upload_local_resource_to_s3(directory, filename, bucket, key, region, endpoi
 
 if __name__ == '__main__':
 
-    bucket = 'mapterhorn'
+    bucket = 'backroadstatus'
     region = 'auto'
-    endpoint = 'https://5521f1c60beed398e82b05eabc341142.r2.cloudflarestorage.com/'
+    endpoint = 'https://fc54602d0b9f0edc11fa668c2a931777.r2.cloudflarestorage.com/'
     
     # PMTiles
 
@@ -31,13 +31,13 @@ if __name__ == '__main__':
     for item in download_urls['items']:
         print(item['name'])
         filename = item['name']
-        directory = f'bundle-store/{filename.replace(".pmtiles", "")}/'
+        directory = f'prod/tiles/{filename.replace(".pmtiles", "")}/'
         key = filename
         upload_local_resource_to_s3(directory, filename, bucket, key, region, endpoint)
     
     # Special files
 
-    directory = 'bundle-store/'
+    directory = 'prod/tiles/'
 
     filename = 'attribution.json'
     key = filename
@@ -51,15 +51,3 @@ if __name__ == '__main__':
     key = filename
     upload_local_resource_to_s3(directory, filename, bucket, key, region, endpoint)
 
-    # Source tarballs
-
-    attribution = None
-    with open('bundle-store/attribution.json') as f:
-        attribution = json.load(f)
-    
-    for item in attribution:
-        print(item['source'])
-        filename = f'{item["source"]}.tar'
-        directory = 'tar-store/'
-        key = f'sources/{filename}'
-        upload_local_resource_to_s3(directory, filename, bucket, key, region, endpoint)
