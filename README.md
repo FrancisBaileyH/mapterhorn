@@ -37,3 +37,14 @@ See [source-catalog/README.md](source-catalog/README.md) and [pipelines/README.m
 Code: BSD-3, see [LICENSE](https://github.com/mapterhorn/mapterhorn/blob/main/LICENSE).
 
 Terrain data: various open-data sources, for a full list see [https://mapterhorn.com/attribution](https://mapterhorn.com/attribution).
+
+## Running
+```
+mdkir working && cd working
+docker run -d \
+-v $(pwd)/bundle-store:/pipelines/bundle-store \
+-v $(pwd)/pmtiles-store:/pipelines/pmtiles-store \
+-v $(pwd)/source-store:/pipelines/source-store \
+-v $(pwd)/aggregation-store:/pipelines/aggregation-store \
+ghcr.io/francisbaileyh/mapterhorn:main
+```

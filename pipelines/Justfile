@@ -5,8 +5,8 @@ default:
 
     # uv run python source_set_crs.py atsalzburg EPSG:31258
 
-    uv run python source_set_nodata.py canada-mrdem -9999
-    uv run python source_set_nodata.py canada-hrdem -9999
+    uv run python source_set_nodata.py canada-mrdem -32767
+    uv run python source_set_nodata.py canada-hrdem -32767
 
     # uv run python source_fix_orientation.py deberlin
 
