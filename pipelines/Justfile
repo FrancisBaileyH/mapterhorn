@@ -16,8 +16,8 @@ default:
     # uv run python source_polygonize.py frrgealti5stpm 32
     # uv run python source_polygonize.py frrgealti5mayotte 32
 
-    uv run python source_create_tarball.py canada-hrdem
-    uv run python source_create_tarball.py canada-mrdem
+    #uv run python source_create_tarball.py canada-hrdem
+    #uv run python source_create_tarball.py canada-mrdem
 
     uv run python aggregation_covering.py
     uv run python downsampling_covering.py
