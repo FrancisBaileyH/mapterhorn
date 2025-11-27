@@ -45,6 +45,33 @@ docker run -d \
 -v $(pwd)/bundle-store:/pipelines/bundle-store \
 -v $(pwd)/pmtiles-store:/pipelines/pmtiles-store \
 -v $(pwd)/source-store:/pipelines/source-store \
+-v $(pwd)/tar-store:/pipelines/tar-store \
 -v $(pwd)/aggregation-store:/pipelines/aggregation-store \
 ghcr.io/francisbaileyh/mapterhorn:main
+```
+
+### Running the upload
+```
+docker run -d \
+-e AWS_ACCESS_KEY_ID=<some id> \
+-e AWS_SECRET_ACCESS_KEY=<some secret> \
+-e AWS_S3_ENDPOINT=<some endpoint> \
+-e AWS_S3_BUCKET=<some bucket> \
+-v $(pwd)/bundle-store:/pipelines/bundle-store \
+-v $(pwd)/pmtiles-store:/pipelines/pmtiles-store \
+-v $(pwd)/source-store:/pipelines/source-store \
+-v $(pwd)/tar-store:/pipelines/tar-store \
+-v $(pwd)/aggregation-store:/pipelines/aggregation-store \
+ghcr.io/francisbaileyh/mapterhorn:main upload
+```
+
+### Using a Custom Justfile
+```
+docker run -d \
+-v $(pwd)/bundle-store:/pipelines/bundle-store \
+-v $(pwd)/pmtiles-store:/pipelines/pmtiles-store \
+-v $(pwd)/source-store:/pipelines/source-store \
+-v $(pwd)/tar-store:/pipelines/tar-store \
+-v $(pwd)/aggregation-store:/pipelines/aggregation-store \
+ghcr.io/francisbaileyh/mapterhorn:main -f /path/to/Justfile -d ./ default
 ```

@@ -5,8 +5,8 @@ default:
 
     # uv run python source_set_crs.py atsalzburg EPSG:31258
 
-    uv run python source_set_nodata.py canada-mrdem -32767
-    uv run python source_set_nodata.py canada-hrdem -32767
+    # uv run python source_set_nodata.py canada-mrdem -32767
+    # uv run python source_set_nodata.py canada-hrdem -32767
 
     # uv run python source_fix_orientation.py deberlin
 
@@ -34,9 +34,19 @@ default:
 
 # Run debug pipeline
 debug:
-    uv run python source_download.py debug-glo30
-    uv run python source_download.py debug-swissalti3d
-    
+    #uv run python source_download.py debug-glo30
+    #uv run python source_download.py debug-swissalti3d
+
+    # Not needed since the CRS is set
+
+    #uv run python source_set_crs.py debug-glo30 EPSG:3979
+    #uv run python source_set_crs.py debug-swissalti3d EPSG:3979
+
+    # Not needed since nodata is already set
+
+    #uv run python source_set_nodata.py debug-glo30 -32767
+    #uv run python source_set_nodata.py debug-swissalti3d -32767
+
     uv run python source_bounds.py debug-glo30
     uv run python source_bounds.py debug-swissalti3d
     

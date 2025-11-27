@@ -1,4 +1,5 @@
 import json
+import os
 
 import utils
 
@@ -18,9 +19,9 @@ def upload_local_resource_to_s3(directory, filename, bucket, key, region, endpoi
 
 if __name__ == '__main__':
 
-    bucket = 'backroadstatus'
+    bucket = os.environ['AWS_S3_BUCKET']
     region = 'auto'
-    endpoint = 'https://fc54602d0b9f0edc11fa668c2a931777.r2.cloudflarestorage.com/'
+    endpoint = os.environ['AWS_S3_ENDPOINT']
     
     # PMTiles
 
